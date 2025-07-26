@@ -7,16 +7,12 @@ const computerScoreDisplay = document.getElementById("computerScoreDisplay");
 let playerScore = 0;
 let computerScore = 0;
 
-function playGame(playerChoice){
-
+function playGame(playerChoice) {
     const computerChoice = choices[Math.floor(Math.random() * 3)];
     let result = "IT'S A TIE!";
 
-    if(playerChoice === computerChoice){
-        return result;
-    }
-    else{
-        switch(playerChoice){
+    if (playerChoice !== computerChoice) {
+        switch(playerChoice) {
             case "rock":
                 result = (computerChoice === "scissors") ? "YOU WIN!" : "YOU LOSE!";
                 break;
@@ -30,12 +26,12 @@ function playGame(playerChoice){
     }
 
     playerDisplay.textContent = `PLAYER: ${playerChoice}`;
-    computerDisplay.textContent = `Computer: ${computerChoice}`;
+    computerDisplay.textContent = `COMPUTER: ${computerChoice}`;
     resultDisplay.textContent = result;
 
     resultDisplay.classList.remove("greenText", "redText");
 
-    switch(result){
+    switch(result) {
         case "YOU WIN!":
             resultDisplay.classList.add("greenText");
             playerScore++;
